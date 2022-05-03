@@ -41,7 +41,7 @@ const App = () => {
             setThreads(data.threads)
         }
         if (!(favourited)) {
-            localStorage.setItem("favorites", JSON.stringify([]))
+            localStorage.setItem("favourites", JSON.stringify([]))
         }
     }
 

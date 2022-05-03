@@ -37,7 +37,7 @@ const SingleThreadPage = () => {
             } else {
                 favourited.push(thisThread)
                 localStorage.setItem("favorites", JSON.stringify(favourited))
-                nav('/favorites')
+                nav('/favourites')
             }
         } else {
             const favorites = []
@@ -50,8 +50,7 @@ const SingleThreadPage = () => {
     const removeFavourite = () => {
         const filteredFavorites = favourited.filter(x => x._id !== id)
         localStorage.setItem("favorites", JSON.stringify(filteredFavorites))
-        alert("Removed From Favorites")
-        nav('/favorites')
+        nav('/favourites')
     }
     const comment = async () => {
         window.scrollTo(0, 0);
