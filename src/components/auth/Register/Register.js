@@ -26,7 +26,7 @@ const Register = () => {
         if (data.success) {
             nav("/login")
         } else {
-            alert(data.errorMessage)
+            alert(data.errMsg)
         }
     }
 

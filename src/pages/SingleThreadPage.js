@@ -66,7 +66,7 @@ const SingleThreadPage = () => {
             },
             body: JSON.stringify(item)
         }
-        const response = await fetch(`http://localhost:4000/addcomment`, options)
+        const response = await fetch(`http://localhost:4000/newcomment`, options)
         const data = await response.json()
         if (data.success) {
             setThreads(data.threads)

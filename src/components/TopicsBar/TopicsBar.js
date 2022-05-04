@@ -7,7 +7,7 @@ const TopicsBar = () => {
                 Tema
             </h3>
             <h3 className='allThreads'>Sukūrė</h3>
-            <h3 className='allThreads'>Komentarų sk.</h3>
+            <h3 className='allThreads'>Atsakymų sk.</h3>
         </div>
     );
 };

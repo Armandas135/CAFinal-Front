@@ -17,11 +17,14 @@ const App = () => {
     const [threads, setThreads] = useState([])
     const favourited = JSON.parse(localStorage.getItem("favorites"))
 
-    async function check() {
+    useEffect(() => {
+        loggedIn()
+    }, [])
+
+    async function loggedIn() {
         const item = {
             userSecret: localStorage.getItem('userSecret')
         }
-
         const options = {
             method: "POST",
             headers: {
@@ -30,14 +33,13 @@ const App = () => {
             body: JSON.stringify(item)
         }
 
-        const response = await fetch(`http://localhost:4000/check`, options)
-        const data = await response.json()
+        const res = await fetch(`http://localhost:4000/loggedIn`, options)
+        const data = await res.json()
 
         if (data.success) {
             setUser(data.user)
             setThreads(data.threads)
         } else {
-            alert(data.errorMessage)
             setThreads(data.threads)
         }
         if (!(favourited)) {
@@ -45,14 +47,9 @@ const App = () => {
         }
     }
 
-    useEffect(() => {
-        check()
-    }, [])
-
     return (
         <AppContext.Provider value={{user, setUser, threads, setThreads, favourited}}>
-            <div className='yes'>
-                <div className=' d-flex flex-column'>
+                <div className='d-flex flex-column vh100'>
                     <Router>
                         <div>
                             <Toolbar/>
@@ -61,14 +58,13 @@ const App = () => {
                             <Route path="/" element={<AllThreads/>}/>
                             <Route path="/register" element={<Register/>}/>
                             <Route path="/login" element={<Login/>}/>
-                            <Route path="/addthread" element={<CreateThread/>}/>
+                            <Route path="/newthread" element={<CreateThread/>}/>
                             <Route path="/threads/:id" element={<SingleThreadPage/>}/>
                             <Route path="/profile" element={<UserProfile/>}/>
                             <Route path="/favourites" element={<FavouriteThreadsPage/>}/>
                         </Routes>
                     </Router>
                 </div>
-            </div>
         </AppContext.Provider>
     );
 };

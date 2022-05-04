@@ -7,7 +7,7 @@ const CreateThread = () => {
     const threadRef = useRef()
     const {user, setThreads} = useContext(mainContext)
     const nav = useNavigate()
-    async function addThread() {
+    async function newThread() {
         const item = {
             name: threadRef.current.value,
             user,
@@ -20,13 +20,13 @@ const CreateThread = () => {
             },
             body: JSON.stringify(item)
         }
-        const response = await fetch(`http://localhost:4000/addthread`, options)
+        const response = await fetch(`http://localhost:4000/newthread`, options)
         const data = await response.json()
         if (data.success) {
             nav("/")
             setThreads(data.threads)
         } else {
-            alert(data.errorMessage)
+            alert(data.errMsg)
         }
     }
 
@@ -38,7 +38,7 @@ const CreateThread = () => {
                     <input className='w-75' ref={threadRef} placeholder="Temos pavadinimas, iki 20 simbolių" type="text"/>
                 </div>
                 <div className='w-100 justify-content-center d-flex'>
-                    <button className='w-25' onClick={addThread}>Sukurti temą</button>
+                    <button className='w-25' onClick={newThread}>Sukurti temą</button>
 
                 </div>
             </div>

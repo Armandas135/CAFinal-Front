@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import mainContext from "../context/AppContext";
 import {useNavigate} from "react-router-dom";
 import TopicsBar from "../components/TopicsBar/TopicsBar";
+import '../App.css'
 
 
 const AllThreads = () => {
@@ -11,7 +12,7 @@ const AllThreads = () => {
 
     return (
         <div className='allThreads fontsizeall'>
-            <h1 className='d-flex justify-content-center margin1rem allThreads'>Pasirinkite temą</h1>
+            <h1 className='d-flex spc margin1rem allThreads'>Pasirinkite temą</h1>
             <TopicsBar/>
             {threads && threads.map((x, i) => {
                 return (
@@ -22,17 +23,16 @@ const AllThreads = () => {
                                 <div className='flex-grow-1 w-1rem ml-custom'>
                                     {x.user.username}
                                 </div>
-                                <div className='flex-grow-1 w-1rem d-flex justify-content-end mr-4'>
+                                <div className='flex-grow-1 w-1rem d-flex justify-content-end mr-5'>
                                     {x.comments.length}
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                 )
             })}
-            <div className='d-flex justify-content-center copyright'><h3>© Armandas Inc. All rights reserved.</h3></div>
+            <div className='d-flex spc copyright'><h3>© Armandas Inc. All rights reserved.</h3></div>
 
         </div>
     );

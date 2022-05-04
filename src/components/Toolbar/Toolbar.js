@@ -10,8 +10,8 @@ const Toolbar = () => {
         nav('/')
     }
 
-    function toAddThread() {
-        nav('/addthread')
+    function toNewThread() {
+        nav('/newThread')
     }
 
     function toRegister() {
@@ -32,7 +32,7 @@ const Toolbar = () => {
                     <div className='d-flex justify-content-end group'>
                         <button onClick={home} className='marginright1rem'>Grįžti į pagrindinį</button>
                         {user &&
-                        <button onClick={toAddThread} className='marginright1rem'>Pradėti naują temą</button>}
+                        <button onClick={toNewThread} className='marginright1rem'>Pradėti naują temą</button>}
                         {!user &&
                         <div className='d-flex justify-content-between align-items-center'>
                             <button onClick={toRegister}>Registruotis</button>

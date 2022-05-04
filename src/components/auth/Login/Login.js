@@ -34,7 +34,7 @@ const Login = () => {
                 localStorage.setItem('userSecret', null);
             }
         } else {
-            alert(data.errorMessage)
+            alert(data.errMsg)
         }
     }
 
